@@ -186,6 +186,15 @@
             font-weight: bold;
             text-shadow: 0 0 5px #9400FF;
         }
+
+        /* Nova classe para a mensagem abaixo do primeiro botão */
+        .mensagem {
+            font-size: 14px;
+            color: #fff;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
     </style>
 </head>
 <body>
@@ -208,13 +217,15 @@
         <div class="button-container">
             <!-- Primeiro botão com link adicionado -->
             <a href="https://media1.placard.co.mz/redirect.aspx?pid=8252&bid=1514" target="_blank" id="primeiroBotao" onclick="habilitarBot()">
-                <button>Criar conta e fazer o primeiro depósito</button>
+                <button>Criar conta e fazer o primeiro depósito (1º Passo)</button>
             </a>
+            <!-- Mensagem abaixo do botão 1 -->
+            <p class="mensagem">Após fazer o cadastro e o depósito, volte aqui para receber o bot.</p>
 
             <!-- Segundo botão com link do WhatsApp (inicialmente desabilitado) -->
             <a href="https://wa.me/258834476497" target="_blank" id="iniciarBotLink">
                 <button id="iniciarBot" class="disabled" onclick="ativarLink()">
-                    Iniciar bot
+                    Iniciar bot (2º Passo)
                     <span class="cadeado">🔒</span>
                 </button>
             </a>
