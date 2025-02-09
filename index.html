@@ -211,9 +211,9 @@
                 <button>Criar conta e fazer o primeiro depósito</button>
             </a>
 
-            <!-- Segundo botão com link do WhatsApp (com cadeado e sem cor) -->
+            <!-- Segundo botão com link do WhatsApp (inicialmente desabilitado) -->
             <a href="https://wa.me/258834476497" target="_blank" id="iniciarBotLink">
-                <button id="iniciarBot" class="disabled">
+                <button id="iniciarBot" class="disabled" onclick="ativarLink()">
                     Iniciar bot
                     <span class="cadeado">🔒</span>
                 </button>
@@ -245,6 +245,13 @@
         function habilitarBot() {
             // Habilita o segundo botão após o clique
             document.getElementById('iniciarBot').classList.remove('disabled');
+        }
+
+        // Função para permitir o link do WhatsApp após o primeiro botão ser clicado
+        function ativarLink() {
+            if (document.getElementById('iniciarBot').classList.contains('disabled')) {
+                event.preventDefault(); // Impede o redirecionamento
+            }
         }
     </script>
 
