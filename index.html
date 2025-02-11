@@ -46,12 +46,6 @@
             box-shadow: 0px 0px 30px #9400FF;
         }
 
-        h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px #9400FF;
-        }
-
         .descricao {
             font-size: 16px;
             margin-bottom: 20px;
@@ -195,6 +189,35 @@
             line-height: 1.5;
         }
 
+        /* Estilos para a contagem */
+        .countdown {
+            font-size: 24px;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        .comments-section {
+            margin-top: 30px;
+            background-color: rgba(20, 20, 20, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #9400FF;
+        }
+
+        .comment {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #2a2a2a;
+            border-radius: 5px;
+        }
+
+        .comment span {
+            font-weight: bold;
+        }
+
+        .comment-text {
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -204,16 +227,14 @@
     </header>
 
     <section class="container">
-        <h2>Inicie o Bot Aviator</h2>
+        <h2>Assista ao Vídeo Agora!</h2>
 
-        <p class="descricao">
-            O <strong>Bot Aviator</strong> utiliza inteligência artificial para analisar padrões do jogo 
-            e identificar os melhores momentos para apostar e sacar automaticamente.  
-            Com uma taxa de acerto de 90%, ele maximiza seus lucros enquanto minimiza riscos, 
-            funcionando 24 horas por dia sem interrupções!
-        </p>
+        <!-- Vídeo do YouTube incorporado -->
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Gp8d74bjugU?si=yigWo3Xwt2n-J9Yd&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-        <!-- Container para os botões, com espaço entre eles -->
+        <div class="countdown" id="countdown">100 pessoas estão a ver este vídeo agora.</div>
+
+        <!-- Container para os botões -->
         <div class="button-container">
             <!-- Primeiro botão com link adicionado -->
             <a href="https://media1.placard.co.mz/redirect.aspx?pid=8252&bid=1514" target="_blank" id="primeiroBotao" onclick="habilitarBot()">
@@ -245,6 +266,23 @@
             <p class="passo">1️⃣ <strong>Criar uma conta</strong> na casa de apostas e fazer o primeiro depósito.</p>
             <p class="passo">2️⃣ <strong>Iniciar o bot</strong> e deixe que ele trabalhe 24h para maximizar seus lucros.</p>
         </div>
+
+        <!-- Comentários de pessoas que adquiriram o bot -->
+        <div class="comments-section">
+            <h2>Comentários de Pessoas que Adquiriram o Bot e Estão Fazendo Dinheiro</h2>
+            
+            <div class="comment">
+                <span>João Silva:</span> <span class="comment-text">"Comprei o bot e já estou vendo um retorno incrível! Recomendo muito!"</span>
+            </div>
+
+            <div class="comment">
+                <span>Maria Oliveira:</span> <span class="comment-text">"Ainda estou começando, mas já estou vendo resultados! Vale a pena!"</span>
+            </div>
+
+            <div class="comment">
+                <span>Pedro Almeida:</span> <span class="comment-text">"Investi no bot e os lucros vieram rápido, estou muito satisfeito!"</span>
+            </div>
+        </div>
     </section>
 
     <footer>
@@ -264,6 +302,27 @@
                 event.preventDefault(); // Impede o redirecionamento
             }
         }
+
+        // Função para criar a contagem alternada entre 73 e 110
+        let count = 100; // Número inicial
+        let isIncreasing = true; // A contagem alterna entre aumentar e diminuir
+
+        function updateCount() {
+            if (isIncreasing) {
+                count = count < 110 ? count + 1 : count - 1; // Aumenta até 110 e depois diminui
+            } else {
+                count = count > 73 ? count - 1 : count + 1; // Diminui até 73 e depois aumenta
+            }
+
+            // Atualiza o texto com a contagem atual
+            document.getElementById("countdown").textContent = `${count} pessoas estão a ver este vídeo agora.`;
+
+            // Alterna a direção da contagem
+            isIncreasing = !isIncreasing;
+        }
+
+        // Chama a função para atualizar a contagem a cada 2 segundos
+        setInterval(updateCount, 2000);
     </script>
 
 </body>
